@@ -122,7 +122,7 @@ contract SimpleStaking {
             amount <= token.balanceOf(msg.sender),
             "Not enough STATE tokens in your wallet, please try lesser amount"
         );
-        token.safeTransferFrom(msg.sender, address(this), amount);
+        token.transferFrom(msg.sender, address(this), amount);
         balances[msg.sender] = balances[msg.sender].add(amount);
         emit tokensStaked(msg.sender, amount);
     }
